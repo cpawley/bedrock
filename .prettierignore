@@ -13,6 +13,7 @@ venv
 # Ignore external JS libraries
 media/js/libs/**/
 media/js/ie/libs/**/
+media/js/glean/generated/**/
 
 # Ignore file types:
 # https://github.com/prettier/prettier/issues/6356 blocks formating scss/css.

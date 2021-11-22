@@ -7,6 +7,7 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@mozilla-protocol/core": "16.0.0",
+    "@mozilla/glean": "^0.26.0",
     "@sentry/browser": "^6.12.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -58,12 +59,16 @@
     "pretest": "npm run lint",
     "test": "./node_modules/.bin/karma start ./tests/unit/karma.conf.js",
     "static": "webpack --config webpack.static.config.js --mode=production --bail",
-    "prebuild": "npm run static",
+    "prebuild": "npm run glean-build && npm run static",
     "build": "webpack --mode=production --bail",
-    "prewatch": "npm run static",
+    "prewatch": "npm run glean-build && npm run static",
     "watch": "webpack --mode=development --watch",
     "prettier": "prettier --write .",
-    "prettier-check": "prettier --check ."
+    "prettier-check": "prettier --check .",
+    "glean-build": "glean translate glean/metrics.yaml glean/pings.yaml -f javascript -o media/js/glean/generated/",
+    "preglean-build": "npm run glean-lint",
+    "glean-docs": "glean translate glean/metrics.yaml glean/pings.yaml -f markdown -o glean/docs/",
+    "glean-lint": "glean glinter glean/metrics.yaml glean/pings.yaml"
   },
   "browserslist": [
     "defaults",

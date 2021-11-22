@@ -998,6 +998,12 @@
     },
     {
       "files": [
+        "js/glean/init.es6.js"
+      ],
+      "name": "glean"
+    },
+    {
+      "files": [
         "js/base/mozilla-fxa-product-button.js",
         "js/base/mozilla-fxa-product-button-init.js"
       ],

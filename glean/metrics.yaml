@@ -1,0 +1,47 @@
+---
+$schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
+
+page:
+  viewed:
+    type: datetime
+    lifetime: ping
+    send_in_pings:
+      - page-view
+    description: |
+      The time a page was viewed.
+    bugs:
+      - https://bugzilla.mozilla.org/TODO
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=TODO#c0
+    notification_emails:
+      - agibson@mozilla.com
+    expires: never
+  id:
+    type: string
+    lifetime: ping
+    send_in_pings:
+      - page-view
+      - click
+    description: |
+      The ID of the page that was viewed.
+    bugs:
+      - https://bugzilla.mozilla.org/TODO
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=TODO#c0
+    notification_emails:
+      - agibson@mozilla.com
+    expires: never
+  element:
+    type: string
+    lifetime: ping
+    send_in_pings:
+      - click
+    description: |
+      The ID of page element that was clicked.
+    bugs:
+      - https://bugzilla.mozilla.org/TODO
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=TODO#c0
+    notification_emails:
+      - agibson@mozilla.com
+    expires: never

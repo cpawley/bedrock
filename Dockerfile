@@ -14,8 +14,17 @@ RUN npm ci
 
 # copy supporting files and media
 COPY .eslintrc.js .eslintignore .stylelintrc .stylelintignore .prettierignore .prettierrc.json webpack.config.js webpack.static.config.js ./
+COPY requirements/base.txt requirements/dev.txt requirements/migration.txt ./requirements/
 COPY ./media ./media
 COPY ./tests/unit ./tests/unit
+COPY ./glean ./glean
+COPY docker/bin/apt-install /usr/local/bin/
+
+# Install Glean dependencies
+ENV PATH="/.venv/bin:$PATH"
+RUN apt-install python3 python-pip python3-venv python-setuptools
+RUN python3 -m venv /.venv
+RUN pip install --no-cache-dir -r requirements/dev.txt
 
 RUN npm run build
 
